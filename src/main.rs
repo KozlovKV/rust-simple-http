@@ -47,6 +47,7 @@ fn get_dir_tree(root: &str, indent: usize) -> String {
                 child.iter().for_each(|pair| {
                     str_tree_layer = format!("{}<br><code>{}{}</code>", str_tree_layer, indent_str, pair.0.display());
                     if pair.1.is_dir() {
+                        str_tree_layer = format!("{} (directory)", str_tree_layer);
                         let nested_dir_name = format!("{}/{}", root, pair.0.display());
                         str_tree_layer = format!(
                             "{}{}{}", str_tree_layer, indent_str, 
